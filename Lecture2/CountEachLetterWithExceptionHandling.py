@@ -1,11 +1,11 @@
 def main():
-    while True:
+    while True: #oneindige while lus => blijft herhalen tot we zelf break zeggen 
         try:
             filename = input("Enter a filename: ").strip()
             inputFile = open(filename, "r") # Open the file
-            break 
-        except IOError:
-            print("File " + filename + " does not exist. Try again")
+            break #dus als het bestand openen lukt dan stopt de while lus 
+        except IOError: #als het mislukt om te openen dan springt het naar except 
+            print("File " + filename + " does not exist. Try again") #dit wordt geprint en daarna wordt terug gesprongen naar begin van de while true dus opnieuw vragen voor bestand naam
 
     counts = 26 * [0] # Create and initialize counts
     for line in inputFile:
