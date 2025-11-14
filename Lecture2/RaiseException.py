@@ -1,3 +1,4 @@
+#zie word doc 
 def getArea(radius):
     if radius < 0:
         raise RuntimeError("Negative radius")
