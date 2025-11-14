@@ -17,18 +17,19 @@ print(tuple3)
 tuple3 = 2 * tuple1 # Multiple a tuple
 print(tuple3)
 
-print(tuple2[2 : 4]) # Slicing operator
-print(tuple1[-1])
+print(tuple2[2 : 4]) # Slicing operator exclusief 4 dus 2 en 3
+print(tuple1[-1]) #negatieve index => vanachter beginnen tellen 
 
-print(2 in tuple2) # in operator
+print(2 in tuple2) # in operator , checkt of waarde 2 in tuple 2 zit => true or false
 
-for v in tuple1:
-    print(v, end = " ")
-print()
+for v in tuple1: #doorloopr elk element 
+    print(v, end = " ") #print ze naast elkaar ipv onder mekaar met spatie 
+print() #uitvoer; green red blue
     
-list1 = list(tuple2) # Obtain a list from a tuple
+#tuple => lijst => sorteren => terug tuple (je kan geen tuples sorteren)
+list1 = list(tuple2) # Obtain a list from a tuple 
 list1.sort()
 tuple4 = tuple(list1)
 tuple5 = tuple(list1)
 print(tuple4)
-print(tuple4 == tuple5) # Compare two tuples 
+print(tuple4 == tuple5) # Compare two tuples, 2 tuples zijn gelijk als zedezemfde lengte en zelfde elementen op zelfde positie hebben 
