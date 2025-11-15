@@ -3,7 +3,7 @@ def selectionSort(lst):
     for i in range(len(lst) - 1):
         # Find the minimum in the lst[i : len(lst)]
         currentMin = min(lst[i : ])
-        currentMinIndex = i + lst[i: ].index(currentMin)
+        currentMinIndex = i + lst[i: ].index(currentMin) #Vind waar dat getal in de originele lijst staat
         
         # Swap lst[i] with lst[currentMinIndex] if necessary
         if currentMinIndex != i:
