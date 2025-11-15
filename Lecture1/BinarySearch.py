@@ -12,7 +12,7 @@ def binarySearch(lst, key):
         else:
             low = mid + 1
       
-    return -low - 1 # Now high < low, key not found
+    return -low - 1 # Now high < low, key not found, deze lijn dient ook om weer tegeven waar getal zou moeten worden ingevoerd als het niet in de lijst staat 
 
 def main():
     lst = [-3, 1, 2, 4, 9, 23]
