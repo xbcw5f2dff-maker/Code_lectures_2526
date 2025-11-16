@@ -1,10 +1,10 @@
-#hoofdfunctie
+#hoofdfunctie, deze wordt als laatste opgesteld als mantel eromheen, deze roept gwn de hulpfunctie (recursive function) op met juiste start waarden 
 def recursiveBinarySearch(lst, key):
     low = 0
     high = len(lst) - 1
     return recursiveBinarySearchHelper(lst, key, low, high)
 
-#recursieve functie 
+#recursieve functie, deze wordt eerst opgesteld 
 def recursiveBinarySearchHelper(lst, key, low, high):
     if low > high:  # The list has been exhausted without a match, stopconditie 
         return -low - 1
