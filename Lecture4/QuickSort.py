@@ -30,14 +30,17 @@ def partition(lst, first, last):
 
    #wanneer low en high elkaar kruisen;
     while high > first and lst[high] >= pivot:  #high schuift naar links tot hij op een element komt dat kleiner is dan de pivpt => dit is de plek waar de pivot moet staan
-        high -= 1
+        high -= 1                               #=> We willen pivot op de laatste positie links waar lst[high] < pivot
+                                                #  (= laatste element in de “linker groep”).   => zie video 4min30s
 
     # Swap pivot with lst[high]
     if pivot > lst[high]:
+        # We hebben een echte kleinere waarde gevonden -> pivot moet naar 'high'
         lst[first] = lst[high]
         lst[high] = pivot
         return high
     else:
+        # pivot is al de kleinste, hij blijft gewoon op zijn plaats
         return first
 
 # A test function 
