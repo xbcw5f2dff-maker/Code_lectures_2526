@@ -6,16 +6,16 @@ def recursiveBinarySearch(lst, key):
 
 #recursieve functie 
 def recursiveBinarySearchHelper(lst, key, low, high):
-    if low > high:  # The list has been exhausted without a match, stop
+    if low > high:  # The list has been exhausted without a match, stopconditie 
         return -low - 1
-
-    mid = (low + high) // 2
+#als low < high dan volgende uitvoeren;
+    mid = (low + high) // 2 
     if key < lst[mid]:
-        return recursiveBinarySearchHelper(lst, key, low, mid - 1)
+        return recursiveBinarySearchHelper(lst, key, low, mid - 1) #als je doelwaarde < waarde midden dan roep je opnieuw de functie aan waarbij high nu midden - 1 is 
     elif key == lst[mid]:
         return mid
     else:
-        return recursiveBinarySearchHelper(lst, key, mid + 1, high)
+        return recursiveBinarySearchHelper(lst, key, mid + 1, high) #zelfde uitleg 
 
 def main():
     lst = [3, 5, 6, 8, 9, 12, 34, 36]
