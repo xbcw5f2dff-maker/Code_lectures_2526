@@ -11,7 +11,7 @@ def insertionSort(lst):
   
         # Insert the current element into lst[k + 1]
         lst[k + 1] = currentElement #als k dus niet groter was dan current element dan wordt k + 1 current element en gaan we verder in de for lus naar de volgende i 
-                                    #daar “valt” het element op de juiste plek in het gesorteerde stuk
+                                    #daar “valt” het element op de juiste plek in het gesorteerde stuk, je zou denken opening zit op index k want je hebt die inhoud ervan naar k + 1 gekopieerd maar je hebt hierna ook de index van k met 1 verlaagt dus daarom k + 1 = currentelement
 def main():
     list = [2, 3, 2, 5, 6, 1, -2, 3, 14, 12]
     insertionSort(list)
