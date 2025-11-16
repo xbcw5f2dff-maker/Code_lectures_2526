@@ -5,7 +5,7 @@ def bubbleSort(lst):
     while k < len(lst) and needNextPass:
         # List may be sorted and next pass not needed
         needNextPass = False
-        for i in range(len(lst) - k): 
+        for i in range(len(lst) - k): #-k omdat die op het einde al goed staan, lijst wordt dus kleiner en kleiner: na elke pass staat het grootste element volledig vn achter, na 2de pass, staat 2de grootste op voorlaatste plaats 
             if lst[i] > lst[i + 1]:
                 # swap lst[i] with lst[i + 1]
                 temp = lst[i]           #linkse getal steek ik in doosje 
