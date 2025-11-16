@@ -1,4 +1,4 @@
-e#hoofdfunctie 
+#hoofdfunctie 
 def sort(lst):
     sortHelper(lst, 0, len(lst) - 1) # Sort the entire lst (vn index O tot de laatste de lijst sorteren)
 
