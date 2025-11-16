@@ -1,10 +1,12 @@
+#hoofdfunctie
 def recursiveBinarySearch(lst, key):
     low = 0
     high = len(lst) - 1
     return recursiveBinarySearchHelper(lst, key, low, high)
 
+#recursieve functie 
 def recursiveBinarySearchHelper(lst, key, low, high):
-    if low > high:  # The list has been exhausted without a match
+    if low > high:  # The list has been exhausted without a match, stop
         return -low - 1
 
     mid = (low + high) // 2
