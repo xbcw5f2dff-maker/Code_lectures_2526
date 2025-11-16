@@ -1,3 +1,4 @@
+#zie video code wordt duidelijk dan 
 #hoofdfunctie
 def quickSort(lst):
     quickSortHelper(lst, 0, len(lst) - 1) #quicksort werkt op een deel ve lijst (subarray) dus de helperfunctie heeft grenzen nodig first=0, last=len(lst)-1
