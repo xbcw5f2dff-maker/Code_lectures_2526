@@ -61,8 +61,7 @@ class LinkedList:                                    #de linkedlist klasse (het 
             (current.next).next = temp
             self.__size += 1
 
-    # Remove the head node and
-    #  return the object that is contained in the removed node. 
+    # Remove the head node and return the object that is contained in the removed node. 
     def removeFirst(self):
         if self.__size == 0:
             return None # Nothing to delete
@@ -70,34 +69,35 @@ class LinkedList:                                    #de linkedlist klasse (het 
             temp = self.__head # Keep the first node temporarily
             self.__head = self.__head.next # Move head to point the next node
             self.__size -= 1 # Reduce size by 1
-            if self.__head == None: 
+            if self.__head == None: #er zat maar 1 element in
                 self.__tail = None # List becomes empty 
-            return temp.element # Return the deleted element
+            return temp.element # Return the deleted element #als er meer dan 1 in zat return je het eerste (want dit heb je verwijderd)
 
     # Remove the last node and
     # return the object that is contained in the removed node
     def removeLast(self):
         if self.__size == 0:
             return None # Nothing to remove
-        elif self.__size == 1: # Only one element in the list
+        elif self.__size == 1: # Only one element in the list            
             temp = self.__head
             self.__head = self.__tail = None  # list becomes empty
             self.__size = 0
             return temp.element
+        
+        #je moet de de node vinden die voor de laatste node staat omdat die de nieuwe tail moet worden; enkel te vinden door vanaf begin te tellen
         else:
-            current = self.__head
+            current = self.__head               #start bij 1ste node
         
-            for i in range(self.__size - 2):
-                current = current.next
+            for i in range(self.__size - 2):    #1ste node is de head dus niet checken, laatste is tail dus ook niet checken
+                current = current.next          #loopt erdoor 
         
-            temp = self.__tail
-            self.__tail = current
-            self.__tail.next = None
+            temp = self.__tail                  #we bewaren de laatste node (deze gaan we verwijderen)
+            self.__tail = current               #nieuwe tail zet je dus op de voorlaatste node die je vond
+            self.__tail.next = None             #hier koppel je de laatste node los want self.__tail verwijst op dit moment al naar de VOORLAATSTE node dus .next dan naar de laatste normaal, maar nu naar NONE 
             self.__size -= 1
             return temp.element
 
-    # Remove the element at the specified position in this list.
-    #  Return the element that was removed from the list. 
+    # Remove the element at the specified position in this list and return the element that was removed from the list. 
     def removeAt(self, index):
         if index < 0 or index >= self.__size:
             return None # Out of range
