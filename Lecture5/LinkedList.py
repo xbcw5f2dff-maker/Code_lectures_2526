@@ -106,15 +106,15 @@ class LinkedList:                                    #de linkedlist klasse (het 
         elif index == self.__size - 1:
             return self.removeLast() # Remove last
         else:
-            previous = self.__head
+            previous = self.__head                      #vind de node v'oor de te verwijderen node 
     
             for i in range(1, index):
-                previous = previous.next
+                previous = previous.next                #stel dat je element op index 2 (C) wilt verwijderen dan is de range(1, 2) dus enkel 1 dus 1 keer loop dus je start bij previous A en dan doe je previous next en kom je bij B, dit noem je opnieuw previous 
         
-            current = previous.next
-            previous.next = current.next
-            self.__size -= 1
-            return current.element
+            current = previous.next                     #dan zeg je dat current = previous next en current is wat we wilen verwijderen => C (je zegt eig current is c en dat werwijst naar previous (wat B is).next en dit is C
+            previous.next = current.next                #B.next = D
+            self.__size -= 1                            
+            return current.element                      #return removed element => C
 
     # Return true if the list is empty
     def isEmpty(self):
@@ -124,7 +124,8 @@ class LinkedList:                                    #de linkedlist klasse (het 
     def getSize(self):
         return self.__size
 
-    def __str__(self):
+    #onderstaande functie zorgt ervoor dat als je print(myLinkedList) doet, dat pyhton dan weet hoe de lijst er moet uitzien als tekst
+    def __str__(self):                  
         result = "["
 
         current = self.__head
