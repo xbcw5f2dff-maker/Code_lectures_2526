@@ -179,14 +179,32 @@ class LinkedList:                                    #de linkedlist klasse (het 
 
     # Return the index of the last matching element in this list, return -1 if no match. 
     def lastIndexOf(self, e):
-        print("Implementation left as an exercise")
-        return 0
+        current = self.__head             # start bij de eerste node
+        index = 0                         # huidig indexnummer
+        last_found = -1                   # als niets gevonden → return -1
 
-    # Replace the element at the specified position in this list
-    #  with the specified element. */
+        while current is not None:
+            if current.element == e:
+                last_found = index        # sla laatste gevonden index op
+            current = current.next
+            index += 1
+
+    return last_found
+
+    # Replace the element at the specified position in this list, with the specified element. */
     def set(self, index, e):
-        print("Implementation left as an exercise")
-        return None
+        # Index buiten bereik?
+        if index < 0 or index >= self.__size:
+            return None
+
+        current = self.__head
+        for i in range(index):        # Ga naar de node op positie index
+            current = current.next
+
+        old_value = current.element   # Bewaar oude waarde (optioneel)
+        current.element = e           # Vervang element in die node
+
+        return old_value              # Return oude element zoals in Python lists
     
     # Return elements via indexer
     def __getitem__(self, index):
