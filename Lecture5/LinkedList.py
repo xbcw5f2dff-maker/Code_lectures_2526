@@ -130,11 +130,11 @@ class LinkedList:                                    #de linkedlist klasse (het 
 
         current = self.__head
         for i in range(self.__size):
-            result += str(current.element)
-            current = current.next
-            if current != None:
+            result += str(current.element)  #je loopt dus exact size keer door de list en voegt de waarde vn de huidige node toe aan result
+            current = current.next          #ga naar volgende node 
+            if current != None:             #we zitten niet aan einde dus moeten "," toevoegen
                 result += ", " # Separate two elements with a comma
-            else:
+            else:                           #we zitten op het einde dus "]" toevoegen 
                 result += "]" # Insert the closing ] in the string
 
         return result
@@ -154,18 +154,30 @@ class LinkedList:                                    #de linkedlist klasse (het 
         return True
 
     # Return the element from this list at the specified index 
-    def get(self, index):
-        print("Implementation left as an exercise")
-        return None
+    def contains(self, e):
+        current = self.__head
 
-    # Return the index of the head matching element in this list.
-    # Return -1 if no match.
+        while current is not None:       # zolang we niet aan het einde zijn
+            if current.element == e:     # element gevonden
+                return True
+            current = current.next       # ga naar de volgende node
+
+        return False                     # niet gevonden
+
+    # Return the index of the head matching element in this list, return -1 if no match.
     def indexOf(self, e):
-        print("Implementation left as an exercise")
-        return 0
+        current = self.__head             # begin bij de eerste node
+        index = 0                         # we starten op positie 0
 
-    # Return the index of the last matching element in this list
-    #  Return -1 if no match. 
+        while current is not None:
+            if current.element == e:
+                return index              # gevonden → index teruggeven
+            current = current.next
+            index += 1                    # één stap verder in de lijst
+
+        return -1                         # niet gevonden
+
+    # Return the index of the last matching element in this list, return -1 if no match. 
     def lastIndexOf(self, e):
         print("Implementation left as an exercise")
         return 0
