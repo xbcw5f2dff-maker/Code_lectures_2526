@@ -53,9 +53,9 @@ class LinkedList:                                    #de linkedlist klasse (het 
         elif index >= self.__size:
             self.addLast(e) # Insert last
         else: # Insert in the middle                                #je wil bv invoegen op index 2, current start op 1 ste element en current wordt current next, zo gaat dit doot tot current net voor de index staat waar je het wilt invoegen
-            current = self.__head                                   #dan sla je de  index (currentnext) waar je het wilt invoegen op in temp 
-            for i in range(1, index):                               #dan zeg je dat de node die je wilt invoegen op de plaats van die index komt die je opgeslagen hebt 
-                current = current.next                              #uiteindelijk zeg je dat je temp nu laat verwijzen naar de volgende locatie 
+            current = self.__head                                   #dan sla je de  index (currentnext) waar je het wilt invoegen op in temp zodat je deze niet kwijt geraakt
+            for i in range(1, index):                               #dan zeg je dat de node (currentnext) moet verwijzen anar de nieuwe node 
+                current = current.next                              #uiteindelijk zeg je dat je temp (oude currentnext) nu laat verwijzen naar de volgende locatie 
             temp = current.next                                     #zie word doc voor betere uitleg
             current.next = Node(e)
             (current.next).next = temp
