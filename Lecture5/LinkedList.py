@@ -29,16 +29,17 @@ class LinkedList:                                    #de linkedlist klasse (het 
             self.__tail = self.__head
 
     # Add an element to the end of the list 
-    def addLast(self, e):
-        newNode = Node(e) # Create a new node for e
+    def addLast(self, e):                                                            
+        newNode = Node(e) # Create a new node for e                            #maak de nieuwe node aan 
     
-        if self.__tail == None:
-            self.__head = self.__tail = newNode # The only node in list
-        else:
-            self.__tail.next = newNode # Link the new with the last node
-            self.__tail = self.__tail.next # tail now points to the last node
-    
-        self.__size += 1 # Increase size
+        if self.__tail == None:                                                #als de lijst leeg is (tail verwijst naar niets):
+            self.__head = self.__tail = newNode # The only node in list        #dan: head en tail moeten naar de nieuwe node verwijzen
+        
+        else:                                                                  #als de lijst niet leeg was bv: tail verwijst naar C en we willen D toevoegen
+            self.__tail.next = newNode # Link the new with the last node       #de huidige laatste node C verwijst nu naar D
+            self.__tail = self.__tail.next # tail now points to the last node  #we zettende tail nu op D
+                                                                               #zie het als: self.__tail.next => naarwaar verwijst de node op de tail en self.__tail => verwijst naar de node op de tail zelf 
+        self.__size += 1 # Increase size                                       
 
     # Same as addLast 
     def add(self, e):
