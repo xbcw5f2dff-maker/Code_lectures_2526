@@ -182,21 +182,22 @@ class LinkedList:
     def __iter__(self):
         return LinkedListIterator(self.__head)
     
-# The Node class
+# The Node class, dit maakt een node aan; 1 blokje in een linkedlist en bestaat uit element en next 
 class Node:
-    def __init__(self, e):
-        self.element = e
-        self.next = None
+    def __init__(self, e):         #de constructor; elke keer als je schrijft n = Node(5) dan voert python deze __init__ uit, argument e = de waarde die wordt opgeslagen in de node 
+        self.element = e           #we bewaren de waarde in de node dus in dit geval element = 5 en next = None 
+        self.next = None           #in het begin weet de node niet wie de volgende is dus daarom next = None, later verandert dit; node1.next = node2 dan krijgen we node1 => node 2 => None 
 
-class LinkedListIterator: 
-    def __init__(self, head):
-        self.current = head
+#zorgt ervoor dat je kan schrijven: for x in mijLinkedlist: print(x), bestaat omdat python de lijst moet kunnen doorlopen, daarvoor moet de klasse een iterator teruggeven die telkens het volgende element neemt 
+class LinkedListIterator:          #klasse die isntaat voor het overlopen vd nodes in een linkedlist 
+    def __init__(self, head): 
+        self.current = head        #we bewaren een pointer naar de node waar we ons nu bevinden 
         
-    def __next__(self):
-        if self.current == None:
-            raise StopIteration
-        else:
-            element = self.current.element
-            self.current = self.current.next
+    def __next__(self):            #functie die wordt opgeroepen om telkens het volgende element te geven in de loop
+        if self.current == None:   #dit betekent dat we voorbij het einde vd linkedlist zijn, er bestaat geen volgende node 
+            raise StopIteration    #dus dan moet het stoppen 
+        else:                      #als we niet op het einde zijn:
+            element = self.current.element #dan halen we de waarde op vd node waar we ons nu bevinden 
+            self.current = self.current.next #erna schuiven we naar de volgende node
             return element    
         
