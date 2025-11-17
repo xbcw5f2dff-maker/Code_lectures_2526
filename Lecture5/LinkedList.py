@@ -145,13 +145,54 @@ class LinkedList:                                    #de linkedlist klasse (het 
 
     # Return true if this list contains the element o 
     def contains(self, e):
-        print("Implementation left as an exercise")
-        return True
+    current = self.__head           # start bij de eerste node
+
+    while current is not None:      # doorloop elke node
+        if current.element == e:
+            return True             # gevonden
+
+        current = current.next      # ga naar de volgende node
+
+    return False                    # hele lijst doorlopen → niet gevonden
 
     # Remove the element and return true if the element is in the list 
     def remove(self, e):
-        print("Implementation left as an exercise")
+    # Lijst leeg → niets te verwijderen
+    if self.__head is None:
+        return False
+
+    # Speciale case: het eerste element verwijderen
+    if self.__head.element == e:
+        self.__head = self.__head.next
+        self.__size -= 1
+
+        # Als lijst hierdoor leeg wordt
+        if self.__head is None:
+            self.__tail = None
+
         return True
+
+    # Algemeen geval: zoeken in de lijst
+    previous = self.__head
+    current = self.__head.next
+
+    while current is not None:
+        if current.element == e:
+            # overslaan van current → verwijderen
+            previous.next = current.next
+            self.__size -= 1
+
+            # Als we de laatste node verwijderen → tail aanpassen
+            if current == self.__tail:
+                self.__tail = previous
+
+            return True
+
+        previous = current
+        current = current.next
+
+    # niet gevonden
+    return False
 
     # Return the element from this list at the specified index 
     def contains(self, e):
