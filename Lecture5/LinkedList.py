@@ -1,27 +1,27 @@
-class LinkedList:
-    def __init__(self):
-        self.__head = None
-        self.__tail = None
-        self.__size = 0
+class LinkedList:                                    #de linkedlist klasse (het skelet)
+    def __init__(self):                              
+        self.__head = None                           #eerste node MAAR verwijst enkel naar de 1ste node: head ──► [A]──►[B]──►[C]
+        self.__tail = None                           #laatste node
+        self.__size = 0                              #hoeveel nodes er zijn (bij begin is de lijst leeg)                          
 
     # Return the head element in the list 
     def getFirst(self):
-        if self.__size == 0:
+        if self.__size == 0:                         #als de lijst leeg is return dan None
             return None
-        else:
+        else:                                        #anders zit de 1ste node in self.__head => return dit
             return self.__head.element
     
-    # Return the last element in the list 
+    # Return the last element in the list            #exact zelfde als getfirst(self) maar dan met tail
     def getLast(self):
         if self.__size == 0:
             return None
         else:
             return self.__tail.element
 
-    # Add an element to the beginning of the list 
+    # Add an element to the beginning of the list  
     def addFirst(self, e):
-        newNode = Node(e) # Create a new node
-        newNode.next = self.__head # link the new node with the head
+        newNode = Node(e) # Create a new node                            #hier maak je een nieuwe node 
+        newNode.next = self.__head # link the new node with the head     #newnode.next = self.__head betekent dat newnode verwijst naar de oude head 
         self.__head = newNode # head points to the new node
         self.__size += 1 # Increase list size
 
