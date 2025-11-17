@@ -1,0 +1,45 @@
+n deze oefening simuleren we de parkeerplaats aan een winkel. Op gegeven tijdstippen komen klanten toe. Is er een parkeerplaats beschikbaar, dan zal een klant zich daar parkeren en zijn boodschappen doen. Als zijn boodschappen gedaan zijn, vertrekt hij gewoon weer. Klanten die toekomen wanneer alle plaatsjes bezet zijn, besluiten om (tevergeefs) een blokje rond te rijden op zoek naar andere parkeerplaats. Na gegeven tijd komen ze terug aan bij de parking, waar ze opnieuw proberen te parkeren. We willen achterhalen wanneer de laatste klant vertrekt en de parking bijgevolg terug leeg is. Merk op dat bij race-condities (twee of meer klanten komen tegelijk toe) de klanten die minder lang willen winkelen voorrang krijgen.
+
+Op onderstaande figuur zie je een voorbeeld met drie parkeerplaatsen en negen klanten. Initieel zijn alle plaatsen vrij.
+
+voorbeeld-simulatie-1
+
+De eerste twee klanten die aankomen, kunnen ongestoord parkeren en hun boodschappen doen.
+
+voorbeeld-simulatie-2
+
+Ook de derde klant kan zich meteen parkeren, ofwel op parkeerplaats 1 (want de eerste klant is al weg), ofwel op parkeerplaats 3. We kiezen steeds de eerste vrije parkeerplaats. Ook wanneer de vierde en vijfde klant arriveren, is er al terug een plekje vrij. De zesde en de zevende klant komen op hetzelfde moment toe, maar de zevende klant krijgt voorrang omdat die een korter winkelbezoek zal doen.
+
+voorbeeld-simulatie-3
+
+Hierdoor kan de zesde klant niet langer parkeren, en besluit om een blokje rond te rijden.
+
+voorbeeld-simulatie-4
+
+Enige tijd later komt de zesde klant terug. Aangezien op dat moment de derde parkeerplaats terug vrij is, kan deze klant nu zijn boodschappen doen. Niet veel later komt de achtste klant toe, die opnieuw merkt dat de parking vol staat. De achtste klant rijdt een blokje rond.
+
+voorbeeld-simulatie-5
+
+Ondertussen komt echter de negende klant reeds aan en gaat met de eerste parkeerplaats lopen.
+
+voorbeeld-simulatie-6
+
+Nu komt de achtste klant voor de derde maal een plekje zoeken en gelukkig is er ondertussen een parkeerplaats vrij. Nadat deze klant zijn boodschappen gedaan heeft, is de parking terug leeg.
+
+voorbeeld-simulatie-7
+
+Opgave
+Schrijf een Python-functie simuleer_parking(aantaParkeerplaatsen:int, blokTijd:int, klanten:list) die een aantal parkeerplaatsen, de tijd nodig om een blokje om te rijden en een lijst van klanten die willen parkeren binnenkrijgt. Voor elke klant is een tuple (aankomsttijd,winkellengte) gegeven. Deze functie moet het moment waarop de laatste klant vertrekt teruggeven.
+
+We raden sterk aan de meegegeven PriorityQueue datastructuur te gebruiken. Deze heeft volgende interessante methoden:
+
+Een initialisatie methode waarmee je een nieuwe PriorityQueue aanmaakt
+Een add-methode om elementen op hun plaats in de wachtlijn te zetten.
+Een poll-methode om het element met de hoogste prioriteit uit de wachtlijn te halen.
+De klasse maakt gebruik van de interne Python sortering. Als je twee objecten  in de wachtlijn hebt waarvoor , dan heeft  een grotere prioriteit dan .
+
+Voorbeelden
+>>> simuleer_parking(1, 5, [(0, 5), (4, 5), (5, 3), (10, 10)])
+25
+>>> simuleer_parking(2, 5, [(0, 5), (3, 4), (4, 5), (5, 3), (8, 9),(10, 3),(10, 10)])
+30
