@@ -1,7 +1,7 @@
 class LinkedList:                                    #de linkedlist klasse (het skelet)
     def __init__(self):                              
-        self.__head = None                           #eerste node MAAR verwijst enkel naar de 1ste node: head ──► [A]──►[B]──►[C]
-        self.__tail = None                           #laatste node
+        self.__head = None                           #eerste node MAAR verwijst enkel naar de 1ste node: self.__head ──► [A]──►[B]──►[C]
+        self.__tail = None                           #laatste node MAAR "idem"
         self.__size = 0                              #hoeveel nodes er zijn (bij begin is de lijst leeg)                          
 
     # Return the head element in the list 
@@ -16,16 +16,16 @@ class LinkedList:                                    #de linkedlist klasse (het 
         if self.__size == 0:
             return None
         else:
-            return self.__tail.element
+            return self.__tail.element               #self.__tail is enkel de pijl, self.__tail.element is het element waarnaar die pijl wijst 
 
     # Add an element to the beginning of the list  
-    def addFirst(self, e):
-        newNode = Node(e) # Create a new node                            #hier maak je een nieuwe node 
-        newNode.next = self.__head # link the new node with the head     #newnode.next = self.__head betekent dat newnode verwijst naar de oude head 
-        self.__head = newNode # head points to the new node
-        self.__size += 1 # Increase list size
+    def addFirst(self, e):                                               #in begin: self.__head ──► [A]──►[B]──►[C]──►None
+        newNode = Node(e) # Create a new node                            #hier maak je een nieuwe node: newNode ──► [X]──►None
+        newNode.next = self.__head # link the new node with the head     #newnode.next = self.__head betekent dat newnode verwijst naar de oude head dus bv X wijst naar A 
+        self.__head = newNode # head points to the new node              #dan zeg je dat self.__head (de pijl) wees naar A en nu wil je dat de pijl van self.__head naar X wijst zodat je krijgt: newNode ──► [X]──►[A]──►[B]──►[C] 
+        self.__size += 1 # Increase list size                            
 
-        if self.__tail == None: # the new node is the only node in list
+        if self.__tail == None: # the new node is the only node in list 
             self.__tail = self.__head
 
     # Add an element to the end of the list 
