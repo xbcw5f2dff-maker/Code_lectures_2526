@@ -119,8 +119,7 @@ class Inventory_Manager:
                 print("  Batch(quantity=" + str(q) + ", cost_per_unit=" + str(c) + ")")
 
 
-def main(self):
-        def main():
+def main():
             m = InventoryManager()
 
             # producten toevoegen
